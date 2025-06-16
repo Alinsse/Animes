@@ -1,11 +1,11 @@
-// src/components/Footer.jsx
 import React from 'react';
+import { FooterWrapper } from './styles'; 
 
 function Footer() {
   return (
-    <footer className="App-footer">
+    <FooterWrapper>
       <p>&copy; 2025 Minha Página React. Todos os direitos reservados.</p>
-    </footer>
+    </FooterWrapper>
   );
 }
 

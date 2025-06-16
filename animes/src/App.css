@@ -1,16 +1,51 @@
+/* App.css */
+
+/* Layout principal com Flexbox */
 .App {
+  display: flex;
+  height: 100vh; /* Garante que o layout ocupe a altura total da tela */
+  flex-direction: row; /* Sidebar e conteúdo principal lado a lado */
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column; /* Organiza Header, Main e Footer na vertical */
+  flex-grow: 1; /* O conteúdo principal ocupa o espaço restante */
+  margin-left: 200px; /* Deixa o espaço para o Sidebar fixo */
+  padding: 20px;
+  overflow: auto; /* Permite rolar o conteúdo se necessário */
+}
+
+main {
+  flex: 1; /* Faz o conteúdo principal ocupar o restante do espaço */
+  padding: 20px;
+  overflow-y: auto; /* Permite rolagem vertical */
+}
+
+footer {
+  margin-top: auto; /* Empurra o footer para a parte inferior */
+  padding: 20px;
+  background-color: #282c34;
+  color: white;
   text-align: center;
 }
 
+/* Estilo do Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #20232a;
+  padding: 20px;
+  z-index: 10; /* Para garantir que o sidebar fique sobre o conteúdo */
+}
+
+/* Estilos do logo, se aplicável */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
