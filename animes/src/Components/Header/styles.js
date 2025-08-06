@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.header`
+
   background-color: #282c34;
   color: white;
-  padding: 20px;
+  padding: 80px;
   text-align: center;
 
   nav {

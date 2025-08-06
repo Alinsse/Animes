@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
-import { SidebarContainer, SidebarList, SidebarItem, SidebarLink, HamburgerIcon, SidebarContent, CloseButton } from './styles';
-import { FaBars, FaTimes } from 'react-icons/fa'; 
+import React from 'react';
+import {
+  SidebarContainer,
+  SidebarList,
+  SidebarItem,
+  SidebarLink,
+  HamburgerIcon,
+  SidebarContent,
+  CloseButton
+} from './styles';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false); 
-
-  const toggleSidebar = () => {
-    setIsOpen(!isOpen); 
-  };
-
+function Sidebar({ isOpen, toggleSidebar }) {
   return (
     <>
       {!isOpen && (
@@ -23,12 +26,24 @@ function Sidebar() {
             <FaTimes />
           </CloseButton>
         )}
-        
+
         <SidebarContent>
           <SidebarList>
-            <SidebarItem><SidebarLink href="#home">Início</SidebarLink></SidebarItem>
-            <SidebarItem><SidebarLink href="#about">Sobre</SidebarLink></SidebarItem>
-            <SidebarItem><SidebarLink href="#contact">Contato</SidebarLink></SidebarItem>
+            <SidebarItem>
+              <SidebarLink as={Link} to="/" onClick={toggleSidebar}>
+                Início
+              </SidebarLink>
+            </SidebarItem>
+            <SidebarItem>
+              <SidebarLink as={Link} to="/about" onClick={toggleSidebar}>
+                Sobre
+              </SidebarLink>
+            </SidebarItem>
+            <SidebarItem>
+              <SidebarLink as={Link} to="/contact" onClick={toggleSidebar}>
+                Contato
+              </SidebarLink>
+            </SidebarItem>
           </SidebarList>
         </SidebarContent>
       </SidebarContainer>
