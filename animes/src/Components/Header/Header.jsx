@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { HeaderWrapper } from './styles';
+import { HeaderWrapper } from './styles.ts';
 import { FaSearch } from 'react-icons/fa';
 
 function Header() {

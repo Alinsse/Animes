@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import styled from 'styled-components';
-import { getTopRatedAnimes, getTrendingAnimes } from '../../Services/HomeApis/usePopulares';
-import AnimeGrid from '../../Components/Carrousel/Anime';
+import AnimeGrid from '../../Components/Carrousel/Anime.tsx';
+import { getTopRatedAnimes } from '../../Services/HomeApis/HomePopulares/usePopulares.ts';
+import { getTrendingAnimes } from '../../Services/HomeApis/HomeClassificados/useClassificados.ts';
 
 const Container = styled.div`
   padding: 20px;

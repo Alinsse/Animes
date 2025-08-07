@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getAnimeDetails } from '../../Services/HomeApis/usePopulares';
+import { getAnimeDetails } from '../../Services/HomeApis/HomeId/useId.ts';
 
 const AnimeDetails = () => {
   const { id } = useParams();

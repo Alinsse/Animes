@@ -7,10 +7,10 @@ import {
   HamburgerIcon,
   SidebarContent,
   CloseButton
-} from './styles';
+} from './styles.ts';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { getCategories } from '../../Services/HomeApis/usePopulares';
+import { getCategories } from '../../Services/Categorias/Listagem/useListagem.ts';
 
 function Sidebar({ isOpen, toggleSidebar }) {
   const [categories, setCategories] = useState([]);

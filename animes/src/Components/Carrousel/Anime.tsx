@@ -1,26 +1,45 @@
 import React from 'react';
-import * as S from './styles';
+import { Grid, Card, Poster, AnimeTitle } from './styles';
 
-function AnimeCard({ anime }) {
+type Anime = {
+  id: string;
+  attributes: {
+    canonicalTitle: string;
+    posterImage?: {
+      small?: string;
+    };
+  };
+};
+
+type AnimeCardProps = {
+  anime: Anime;
+};
+
+type AnimeGridProps = {
+  animes: Anime[];
+};
+
+const AnimeCard: React.FC<AnimeCardProps> = ({ anime }) => {
   return (
-    <S.Card>
-      <S.Poster src={anime.attributes.posterImage?.small} alt={anime.attributes.canonicalTitle} />
-      <S.AnimeTitle>{anime.attributes.canonicalTitle}</S.AnimeTitle>
-    </S.Card>
+    <Card>
+      <Poster
+        src={anime.attributes.posterImage?.small}
+        alt={anime.attributes.canonicalTitle}
+      />
+      <AnimeTitle>{anime.attributes.canonicalTitle}</AnimeTitle>
+    </Card>
   );
-}
+};
 
-function AnimeGrid({ animes }) {
+const AnimeGrid: React.FC<AnimeGridProps> = ({ animes }) => {
   return (
-    <S.Grid>
+    <Grid>
       {animes.map((anime) => (
-        <React.Fragment key={anime.id}>
-          <AnimeCard anime={anime} />
-        </React.Fragment>
+        <AnimeCard key={anime.id} anime={anime} />
       ))}
-    </S.Grid>
+    </Grid>
   );
-}
+};
 
 export { AnimeCard, AnimeGrid };
-export default AnimeGrid; // export default para facilitar importação
+export default AnimeGrid;
