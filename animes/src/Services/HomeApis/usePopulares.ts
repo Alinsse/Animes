@@ -14,12 +14,6 @@ export const getTopRatedAnimes = async () => {
   }
 };
 
-export const getTrendingAnimes = async () => {
-  try {
-    const response = await api.get('trending/anime?limit=5');
-    return response.data.data;
-  } catch (error) {
-    console.error('Erro ao buscar animes em alta:', error);
-    return [];
-  }
-};
+
+
+
