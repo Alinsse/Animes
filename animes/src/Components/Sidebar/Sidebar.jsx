@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
   SidebarContainer,
   SidebarList,
@@ -6,42 +6,38 @@ import {
   SidebarLink,
   HamburgerIcon,
   SidebarContent,
-  CloseButton
-} from './styles.ts';
+  CloseButton,
+} from './styles.ts'; // Certifique-se de que os estilos estão corretos
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { getCategories } from '../../Services/Categorias/Listagem/useListagem.ts';
+import { getCategories } from '../../Services/Categorias/Listagem/useListagem.ts'; // Certifique-se de que a função está correta
 
 function Sidebar({ isOpen, toggleSidebar }) {
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = React.useState([]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const fetchCategories = async () => {
-      const categoriesData = await getCategories(); 
+      const categoriesData = await getCategories();
       setCategories(categoriesData);
     };
 
     fetchCategories();
-  }, []); // O array vazio faz isso rodar apenas uma vez após a renderização do componente
+  }, []);
 
   return (
     <>
-      {!isOpen && (
-        <HamburgerIcon onClick={toggleSidebar} aria-label="Abrir Menu">
-          <FaBars />
-        </HamburgerIcon>
-      )}
+      <HamburgerIcon onClick={toggleSidebar}>
+        <FaBars />
+      </HamburgerIcon>
 
       <SidebarContainer isOpen={isOpen}>
-        {isOpen && (
-          <CloseButton onClick={toggleSidebar}>
-            <FaTimes />
-          </CloseButton>
-        )}
+        <CloseButton onClick={toggleSidebar}>
+          <FaTimes />
+        </CloseButton>
 
         <SidebarContent>
           <SidebarList>
-            {/* Exibindo as categorias */}
+            {/* Exibindo categorias */}
             {categories.length > 0 && (
               <SidebarItem>
                 <SidebarLink as={Link} to="/categories" onClick={toggleSidebar}>

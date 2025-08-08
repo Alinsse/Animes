@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Card, Poster, AnimeTitle } from './styles';
+import { Grid, Card, Poster, AnimeTitle } from './styles.ts';
 
 type Anime = {
   id: string;

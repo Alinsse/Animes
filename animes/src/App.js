@@ -7,7 +7,7 @@ import Header from './Components/Header/Header';
 import AppRoutes from './Routes/Routes';
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(false); // Inicialmente fechado
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
