@@ -1,3 +1,4 @@
+// src/components/Header/Header.tsx
 import React, { useState } from 'react';
 import { HeaderWrapper } from './styles.ts';
 import { FaSearch } from 'react-icons/fa';
@@ -12,8 +13,7 @@ function Header() {
 
   return (
     <HeaderWrapper>
-      <h1>O Maior Catálogo De Anime Do Mundo</h1>
-      <div className="search-wrapper">
+      <form className="search-wrapper" onSubmit={handleSearch}>
         <input
           type="text"
           className="search-input"
@@ -21,13 +21,10 @@ function Header() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-        <button
-          className="search-icon"
-          onClick={handleSearch} 
-        >
-          <FaSearch size={20} /> 
+        <button className="search-icon" type="submit">
+          <FaSearch size={16} />
         </button>
-      </div>
+      </form>
     </HeaderWrapper>
   );
 }

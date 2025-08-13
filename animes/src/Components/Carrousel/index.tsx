@@ -3,31 +3,32 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const AnimeCarousel = ({ title, animes }) => {
+const BannerCarousel = ({ banners }) => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1, // Um banner por vez
     slidesToScroll: 1,
-    responsive: [
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-    ],
+    autoplay: true, // Ativa o autoplay
+    autoplaySpeed: 3000, // Intervalo entre os slides
   };
 
   return (
     <div style={{ marginBottom: 40 }}>
-      <h2>{title}</h2>
       <Slider {...settings}>
-        {animes.map((anime) => (
-          <div key={anime.id} style={{ padding: '10px' }}>
+        {/* Renderizando os banners */}
+        {banners.map((banner, index) => (
+          <div key={index}>
             <img
-              src={anime.attributes.posterImage?.small}
-              alt={anime.attributes.canonicalTitle}
-              style={{ width: '100%', borderRadius: 8 }}
+              src={banner}
+              alt={`Banner ${index + 1}`}
+              style={{
+                width: '100%',
+                borderRadius: '8px',
+                height: 'auto',
+              }}
             />
-            <p style={{ marginTop: 8 }}>{anime.attributes.canonicalTitle}</p>
           </div>
         ))}
       </Slider>
@@ -35,4 +36,4 @@ const AnimeCarousel = ({ title, animes }) => {
   );
 };
 
-export default AnimeCarousel;
+export default BannerCarousel;

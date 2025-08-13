@@ -1,74 +1,94 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.header`
+  background-image: url('/banner.png'); /* Imagem no /public */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-  background-color: #282c34;
+  width: 100%;
+
+  /* Altura responsiva do header */
+  height: 40vh;
+  max-height: 50vh;
+  min-height: 200px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 5%;
+
   color: white;
-  padding: 80px;
-  text-align: center;
 
-  nav {
-    margin-top: 20px;
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
   }
 
-  a {
-    color: #61dafb;
-    margin: 0 15px;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-  /* Alinhando a busca à direita */
   .search-wrapper {
-    margin-top: 20px;
-    display: flex;
-    justify-content: flex-end; /* Alinha os elementos à direita */
-    align-items: center;
+    position: relative;
+    max-width: 220px;
     width: 100%;
-    position: relative; /* Para posicionar o ícone dentro do input */
+    align-self: flex-end;
   }
 
   .search-input {
-    padding: 8px 35px 8px 10px;  /* Ajuste do padding para o ícone e texto */
-    font-size: 16px;
+    width: 100%;
+    padding: 8px 35px 8px 12px;
+    font-size: 14px;
+    border-radius: 20px;
     border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-    width: 200px;
+    outline: none;
+    box-sizing: border-box; /* Importante para evitar overflow */
   }
 
   .search-icon {
     position: absolute;
-    right: 10px; /* Posição do ícone dentro do input */
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     background: none;
     border: none;
     cursor: pointer;
+    color: #333;
   }
 
-  /* Media query para telas menores que 768px */
   @media (max-width: 768px) {
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    height: 30vh;
+    max-height: 40vh;
+    min-height: 180px;
 
-    a {
-      margin: 10px;
+    h1 {
+      font-size: 1.5rem;
     }
 
     .search-wrapper {
-      flex-direction: row;
-      margin-top: 10px;
+      max-width: 180px;
     }
 
     .search-input {
-      margin-right: 10px;
+      font-size: 13px;
+      padding: 6px 30px 6px 10px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    height: 25vh;
+    min-height: 150px;
+
+    h1 {
+      font-size: 1.2rem;
+    }
+
+    .search-wrapper {
+      max-width: 140px;
+      align-self: center;
+    }
+
+    .search-input {
+      font-size: 12px;
+      padding: 5px 25px 5px 8px;
     }
   }
 `;
