@@ -60,7 +60,7 @@ export const HamburgerIcon = styled.div`
   }
 `;
 
-export const CloseButton = styled.div`
+export const CloseButton = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: 20px;
   right: 20px;
@@ -68,6 +68,7 @@ export const CloseButton = styled.div`
   cursor: pointer;
   color: white;
   z-index: 1100;
+  display: ${({ isOpen }) => (isOpen ? 'block' : 'none')};
 `;
 
 export const SidebarContent = styled.div`

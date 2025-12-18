@@ -31,7 +31,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
       </HamburgerIcon>
 
       <SidebarContainer isOpen={isOpen}>
-        <CloseButton onClick={toggleSidebar}>
+        <CloseButton isOpen={isOpen} onClick={toggleSidebar}>
           <FaTimes />
         </CloseButton>
 
