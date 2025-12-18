@@ -48,7 +48,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
                     <li key={category.id}>
                       <SidebarLink
                         as={Link}
-                        to={`/category/${category.id}`}
+                        to={`/category/${category.attributes?.slug || category.attributes?.title?.toLowerCase()}`}
                         onClick={toggleSidebar}
                       >
                         {category.attributes.title}
